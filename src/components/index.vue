@@ -4,15 +4,15 @@
 
       <label class="label-item">单位大小 : </label>
 
-      <el-input v-model="box" type="number" class="input-item" @change="handleChangeBox(box)" />
-      <el-button type="primary" icon="el-icon-refresh-right" @click="handleChangeBox(box)"> {{ boxNumber ? '重置画板' : '确 认' }} </el-button>
+      <input v-model="box" type="number" class="input-item" @change="handleChangeBox(box)" />
+      <button type="primary" icon="el-icon-refresh-right" @click="handleChangeBox(box)"> {{ boxNumber ? '重置画板' : '确 认' }} </button>
 
       <span class="ctrl-text"> 当前模式: {{ mode ? '固定选择' : '自由选择' }} </span>
 
       <span class="ctrl-btns">
-        <el-button type="primary" icon="el-icon-refresh" @click="handeleChangeMode()"> 切换模式 </el-button>
-        <el-button type="primary" icon="el-icon-refresh-left" :disabled="tempStep.length === 1" @click="handlePre()"> 撤 销 </el-button>
-        <el-button type="primary" icon="el-icon-refresh-right" :disabled="nextStep.length === 0" @click="handleNext()"> 恢 复 </el-button>
+        <button type="primary" icon="el-icon-refresh" @click="handeleChangeMode()"> 切换模式 </button>
+        <button type="primary" icon="el-icon-refresh-left" :disabled="tempStep.length === 1" @click="handlePre()"> 撤 销 </button>
+        <button type="primary" icon="el-icon-refresh-right" :disabled="nextStep.length === 0" @click="handleNext()"> 恢 复 </button>
       </span>
 
     </div>
@@ -29,20 +29,12 @@
 
     </div>
 
-    <el-dialog :visible.sync="dialogPicVisable" width="80%" title="预览">
-      <img :src="imgData" width="100%" alt="图像">
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogPicVisable = false"> 取消 </el-button>
-        <el-button type="primary" @click="postPicData"> 确定 </el-button>
-      </div>
-    </el-dialog>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Video',
+  name: 'Canvas',
   data() {
     return {
       context: {},
